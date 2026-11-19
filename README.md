@@ -3,7 +3,7 @@
 Aplicación web desarrollada para registrar las tareas de cada cantero, organizar jornadas de riego y siembra y gestionar los datos de forma persistente con Supabase.
 
 ## Enlaces del proyecto
-- **Sitio publicado en Render:** [PEGAR AQUÍ TU ENLACE DE RENDER]
+- **Sitio publicado en Render:** https://huerto-yj8j.onrender.com
 - **Repositorio en GitHub:** https://github.com/momomit666-arch/huerto
 
 ## Funcionalidades implementadas
