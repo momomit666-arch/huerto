@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Actividades de la Huerta Escolar</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <span class="badge">Huerta Escolar</span>
+      <h1>Actividades de la Huerta</h1>
+      <p class="subtitle">Registro de tareas por cantero y control de jornadas de riego y siembra</p>
+    </div>
+  </header>
+
+  <main class="container main-grid">
+    <!-- Formulario Crear / Editar -->
+    <section class="card">
+      <h2 id="form-title">Nueva actividad</h2>
+      <form id="actividad-form">
+        <input type="hidden" id="actividad-id" />
+
+        <div class="form-group">
+          <label for="cantero">Cantero</label>
+          <input type="text" id="cantero" placeholder="Ej: Cantero 1" required />
+        </div>
+
+        <div class="form-group">
+          <label for="cultivo">Cultivo</label>
+          <input type="text" id="cultivo" placeholder="Ej: Lechuga" required />
+        </div>
+
+        <div class="form-group">
+          <label for="tarea">Tarea</label>
+          <select id="tarea" required>
+            <option value="">Seleccioná una tarea</option>
+            <option value="riego">riego</option>
+            <option value="siembra">siembra</option>
+            <option value="cosecha">cosecha</option>
+            <option value="desmalezado">desmalezado</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="fecha">Fecha</label>
+          <input type="date" id="fecha" required />
+        </div>
+
+        <div class="form-group">
+          <label for="equipo_responsable">Equipo responsable</label>
+          <input type="text" id="equipo_responsable" placeholder="Ej: Equipo Verde" required />
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="submit-btn" class="btn btn-primary">Guardar actividad</button>
+          <button type="button" id="cancel-btn" class="btn btn-secondary hidden">Cancelar</button>
+        </div>
+      </form>
+      <p id="mensaje-estado" class="status-msg" aria-live="polite"></p>
+    </section>
+
+    <!-- Listado y Filtro -->
+    <section class="card table-card">
+      <div class="table-header">
+        <h2>Registros cargados</h2>
+        <div class="filter-box">
+          <label for="filtro-tarea">Filtrar por tarea:</label>
+          <select id="filtro-tarea">
+            <option value="todas">Todas</option>
+            <option value="riego">riego</option>
+            <option value="siembra">siembra</option>
+            <option value="cosecha">cosecha</option>
+            <option value="desmalezado">desmalezado</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Cantero</th>
+              <th>Cultivo</th>
+              <th>Tarea</th>
+              <th>Fecha</th>
+              <th>Equipo responsable</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-actividades">
+            <tr>
+              <td colspan="6" class="empty-msg">Cargando registros...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- SDK de Supabase desde CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
